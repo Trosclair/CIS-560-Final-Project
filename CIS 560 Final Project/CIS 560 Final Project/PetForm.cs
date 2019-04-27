@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace CIS_560_Final_Project
 {
-    public partial class Form2 : Form
+    public partial class uxPetForm : Form
     {
-        public Form2()
+        private string OwnerPhoneNumber { get; set; }
+        public uxPetForm(string ownerPhoneNumber)
         {
             InitializeComponent();
+            OwnerPhoneNumber = ownerPhoneNumber;
         }
     }
 }

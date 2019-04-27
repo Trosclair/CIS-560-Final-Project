@@ -1,6 +1,6 @@
 ﻿namespace CIS_560_Final_Project
 {
-    partial class Form3
+    partial class uxPetForm
     {
         /// <summary>
         /// Required designer variable.
@@ -212,7 +212,7 @@
             this.button1.Text = "Add Pet";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Form3
+            // uxPetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -221,8 +221,8 @@
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.Name = "Form3";
-            this.Text = "Form3";
+            this.Name = "uxPetForm";
+            this.Text = "Owner\'s Pets";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -12,38 +12,51 @@ using System.Windows.Forms;
 
 namespace CIS_560_Final_Project
 {
-    public partial class uxClinicForm : Form
+    public partial class uxOwnerForm : Form
     {
+
+        private string Clinic { get; set; }
         private readonly SqlConnection conn = new SqlConnection("Data Source=LAPTOP-4QRV3VKE;Initial Catalog=Clinic;Integrated Security=True;Pooling=False");
         private SqlDataReader rdr = null;
 
-        public uxClinicForm()
+        public uxOwnerForm(string clinic)
         {
             InitializeComponent();
-            uxClinicListBox.MouseDoubleClick += new MouseEventHandler(uxClinicListBox_DoubleClick);
+            Clinic = clinic;
+            uxOwnerListBox.MouseDoubleClick += new MouseEventHandler(uxOwnerListBox_DoubleClick);
             PopulateListBox();
         }
 
-        private void UxAddClinicButton_Click(object sender, EventArgs e)
+        private void UxAddOwnerButton_Click(object sender, EventArgs e)
         {
-            uxClinicContainer.Enabled = true;
+            uxOwnerContainer.Enabled = true;
         }
 
         private void UxAddButton_Click(object sender, EventArgs e)
         {
             conn.Open();
-            if (!string.IsNullOrWhiteSpace(uxClinicTextBox.Text))
+            if (!string.IsNullOrWhiteSpace(uxPhoneTextBox.Text) && !string.IsNullOrWhiteSpace(uxFirstName.Text) && !string.IsNullOrWhiteSpace(uxLastNameTextBox.Text))
             {
                 try
                 {
-                    ExecuteQuery("INSERT Clinic.Clinic([Name]) VALUES(N'" + uxClinicTextBox.Text + "')");
+                    ExecuteQuery
+                        (
+                        "INSERT Clinic.Owner(ClinicId, PhoneNumber, FirstName, LastName, HappinessPercent)" +
+                        "SELECT C.ClinicId, O.PhoneNumber, O.FirstName, O.LastName, O.HappinessPercent" +
+                        "FROM" +
+	                    "    (" +
+		                "       VALUES" +
+			            "           (N'"+ Clinic +"', N'"+ uxPhoneTextBox.Text +"', N'"+ uxFirstName.Text +"', N'"+ uxLastNameTextBox.Text +"', "+ uxPercentNumericUpDown.Value.ToString()+")" +
+	                    "   ) O([Name], PhoneNumber, FirstName, LastName, HappinessPercent)" +
+                        "INNER JOIN Clinic.Clinic C ON C.[Name] = O.[Name]"
+                        );
                 }
                 finally
                 {
                     CloseConnection();
                 }
             }
-            uxClinicContainer.Enabled = false;
+            uxOwnerContainer.Enabled = false;
             PopulateListBox();
         }
 
@@ -53,16 +66,16 @@ namespace CIS_560_Final_Project
             List<string> listOfClinics = null;
             try
             {
-                listOfClinics = ExecuteQuery("SELECT C.[Name] FROM Clinic.Clinic C");
+                listOfClinics = ExecuteQuery("SELECT O.PhoneNumber, O.FirstName, O.LastName, O.HappinessPercent FROM Clinic.Owner O INNER JOIN Clinic.Clinic C ON C.ClinicId = O.ClinicId WHERE C.[Name] = N'" + Clinic +"'");
             }
             finally
             {
                 CloseConnection();
             }
-            uxClinicListBox.Items.Clear();
+            uxOwnerListBox.Items.Clear();
             foreach (string s in listOfClinics)
             {
-                uxClinicListBox.Items.Add(s);
+                uxOwnerListBox.Items.Add(s);
             }
         }
 
@@ -98,17 +111,17 @@ namespace CIS_560_Final_Project
             }
         }
 
-        private void uxClinicListBox_DoubleClick(object sender, MouseEventArgs e)
+        private void uxOwnerListBox_DoubleClick(object sender, MouseEventArgs e)
         {
-            int index = this.uxClinicListBox.IndexFromPoint(e.Location);
+            int index = this.uxOwnerListBox.IndexFromPoint(e.Location);
             if (index != System.Windows.Forms.ListBox.NoMatches)
             {
-                uxOwnerForm ownerForm = new uxOwnerForm(uxClinicListBox.SelectedItem.ToString());
-                new Thread(RunOwnerForm).Start(ownerForm); ///////////////////////////// THIS WILL LAUNCH ANOTHER FORM THAT CONTINUES THE PROGRAM SO EDIT DIS also multithread
+                uxPetForm petForm = new uxPetForm(uxOwnerListBox.SelectedItem.ToString().Split(',')[0]);
+                new Thread(RunPetForm).Start(petForm);
             }
         }
 
-        static void RunOwnerForm(Object ob)
+        static void RunPetForm(Object ob)
         {
             Application.Run((Form)ob);
         }
