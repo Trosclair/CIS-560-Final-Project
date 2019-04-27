@@ -163,3 +163,26 @@ SET
 FROM Clinic.[Owner] O
 WHERE O.PhoneNumber = N'7858675309'
 
+--this probs no work, may want to switch to cte or something
+SELECT
+    P.FirstName AS Pet
+FROM 
+(SELECT *
+ FROM
+Ailment AS A 
+INNER JOIN PetAilment AS PA 
+    ON PA.AilmentId = A.AilmentId 
+INNER JOIN Pet AS P 
+    ON P.PetId = PA.PetId
+INNER JOIN Visit AS V 
+    ON V.PetId =P.PetId
+INNER JOIN Vet 
+    ON Vet.VisitId = V.VisitId
+WHERE Vet.Name = 'A' AND V.VisitedOn = 'B') AS Subquery
+INNER JOIN Ailment AS A 
+  ON A.AilmentId = Subquery.AilmentId
+INNER JOIN PetAilment AS PA 
+  ON PA.AilmentId = A.AilmentId
+INNER JOIN Pet AS P 
+  ON P.PetId = PA.PetId
+WHERE A.Name = 'C'
