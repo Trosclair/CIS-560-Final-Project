@@ -28,203 +28,272 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.uxInstructionLabel = new System.Windows.Forms.Label();
+            this.uxPetListBox = new System.Windows.Forms.ListBox();
+            this.uxPetContainer = new System.Windows.Forms.GroupBox();
+            this.uxAddButton = new System.Windows.Forms.Button();
+            this.uxHourLabel = new System.Windows.Forms.Label();
+            this.uxDayLabel = new System.Windows.Forms.Label();
+            this.uxMonthLabel = new System.Windows.Forms.Label();
+            this.uxYearLabel = new System.Windows.Forms.Label();
+            this.uxBirthDateLabel = new System.Windows.Forms.Label();
+            this.uxNameTextBox = new System.Windows.Forms.TextBox();
+            this.uxNameLabel = new System.Windows.Forms.Label();
+            this.uxBreedTextBox = new System.Windows.Forms.TextBox();
+            this.uxBreedLabel = new System.Windows.Forms.Label();
+            this.uxAddPetButton = new System.Windows.Forms.Button();
+            this.uxYearNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.uxMonthNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.uxDayNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.uxHourNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.uxPetContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxYearNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxMonthNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDayNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxHourNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // label8
+            // uxInstructionLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(180, 12);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(112, 13);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Click Pet to view visits";
+            this.uxInstructionLabel.AutoSize = true;
+            this.uxInstructionLabel.Location = new System.Drawing.Point(192, 12);
+            this.uxInstructionLabel.Name = "uxInstructionLabel";
+            this.uxInstructionLabel.Size = new System.Drawing.Size(112, 13);
+            this.uxInstructionLabel.TabIndex = 7;
+            this.uxInstructionLabel.Text = "Click Pet to view visits";
             // 
-            // listBox1
+            // uxPetListBox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(180, 38);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(208, 238);
-            this.listBox1.TabIndex = 6;
+            this.uxPetListBox.FormattingEnabled = true;
+            this.uxPetListBox.Location = new System.Drawing.Point(195, 38);
+            this.uxPetListBox.Name = "uxPetListBox";
+            this.uxPetListBox.Size = new System.Drawing.Size(313, 238);
+            this.uxPetListBox.TabIndex = 6;
             // 
-            // groupBox1
+            // uxPetContainer
             // 
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 41);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(162, 235);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Pet";
+            this.uxPetContainer.Controls.Add(this.uxHourNumericUpDown);
+            this.uxPetContainer.Controls.Add(this.uxDayNumericUpDown);
+            this.uxPetContainer.Controls.Add(this.uxMonthNumericUpDown);
+            this.uxPetContainer.Controls.Add(this.uxYearNumericUpDown);
+            this.uxPetContainer.Controls.Add(this.uxAddButton);
+            this.uxPetContainer.Controls.Add(this.uxHourLabel);
+            this.uxPetContainer.Controls.Add(this.uxDayLabel);
+            this.uxPetContainer.Controls.Add(this.uxMonthLabel);
+            this.uxPetContainer.Controls.Add(this.uxYearLabel);
+            this.uxPetContainer.Controls.Add(this.uxBirthDateLabel);
+            this.uxPetContainer.Controls.Add(this.uxNameTextBox);
+            this.uxPetContainer.Controls.Add(this.uxNameLabel);
+            this.uxPetContainer.Controls.Add(this.uxBreedTextBox);
+            this.uxPetContainer.Controls.Add(this.uxBreedLabel);
+            this.uxPetContainer.Location = new System.Drawing.Point(12, 41);
+            this.uxPetContainer.Name = "uxPetContainer";
+            this.uxPetContainer.Size = new System.Drawing.Size(162, 277);
+            this.uxPetContainer.TabIndex = 5;
+            this.uxPetContainer.TabStop = false;
+            this.uxPetContainer.Text = "Pet";
             // 
-            // button2
+            // uxAddButton
             // 
-            this.button2.Location = new System.Drawing.Point(72, 206);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.uxAddButton.Location = new System.Drawing.Point(72, 248);
+            this.uxAddButton.Name = "uxAddButton";
+            this.uxAddButton.Size = new System.Drawing.Size(75, 23);
+            this.uxAddButton.TabIndex = 6;
+            this.uxAddButton.Text = "Add";
+            this.uxAddButton.UseVisualStyleBackColor = true;
+            this.uxAddButton.Click += new System.EventHandler(this.UxAddButton_Click_1);
             // 
-            // textBox6
+            // uxHourLabel
             // 
-            this.textBox6.Location = new System.Drawing.Point(47, 173);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 5;
+            this.uxHourLabel.AutoSize = true;
+            this.uxHourLabel.Location = new System.Drawing.Point(6, 173);
+            this.uxHourLabel.Name = "uxHourLabel";
+            this.uxHourLabel.Size = new System.Drawing.Size(30, 13);
+            this.uxHourLabel.TabIndex = 2;
+            this.uxHourLabel.Text = "Hour";
             // 
-            // label7
+            // uxDayLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 173);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(30, 13);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Hour";
+            this.uxDayLabel.AutoSize = true;
+            this.uxDayLabel.Location = new System.Drawing.Point(6, 147);
+            this.uxDayLabel.Name = "uxDayLabel";
+            this.uxDayLabel.Size = new System.Drawing.Size(26, 13);
+            this.uxDayLabel.TabIndex = 3;
+            this.uxDayLabel.Text = "Day";
             // 
-            // textBox4
+            // uxMonthLabel
             // 
-            this.textBox4.Location = new System.Drawing.Point(47, 147);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 2;
+            this.uxMonthLabel.AutoSize = true;
+            this.uxMonthLabel.Location = new System.Drawing.Point(6, 121);
+            this.uxMonthLabel.Name = "uxMonthLabel";
+            this.uxMonthLabel.Size = new System.Drawing.Size(37, 13);
+            this.uxMonthLabel.TabIndex = 4;
+            this.uxMonthLabel.Text = "Month";
             // 
-            // label6
+            // uxYearLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 147);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Day";
+            this.uxYearLabel.AutoSize = true;
+            this.uxYearLabel.Location = new System.Drawing.Point(6, 95);
+            this.uxYearLabel.Name = "uxYearLabel";
+            this.uxYearLabel.Size = new System.Drawing.Size(29, 13);
+            this.uxYearLabel.TabIndex = 2;
+            this.uxYearLabel.Text = "Year";
             // 
-            // textBox5
+            // uxBirthDateLabel
             // 
-            this.textBox5.Location = new System.Drawing.Point(47, 121);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 3;
+            this.uxBirthDateLabel.AutoSize = true;
+            this.uxBirthDateLabel.Location = new System.Drawing.Point(6, 70);
+            this.uxBirthDateLabel.Name = "uxBirthDateLabel";
+            this.uxBirthDateLabel.Size = new System.Drawing.Size(54, 13);
+            this.uxBirthDateLabel.TabIndex = 2;
+            this.uxBirthDateLabel.Text = "BirthDate:";
             // 
-            // label5
+            // uxNameTextBox
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Month";
+            this.uxNameTextBox.Location = new System.Drawing.Point(56, 48);
+            this.uxNameTextBox.Name = "uxNameTextBox";
+            this.uxNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.uxNameTextBox.TabIndex = 2;
             // 
-            // textBox3
+            // uxNameLabel
             // 
-            this.textBox3.Location = new System.Drawing.Point(47, 92);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.uxNameLabel.AutoSize = true;
+            this.uxNameLabel.Location = new System.Drawing.Point(6, 45);
+            this.uxNameLabel.Name = "uxNameLabel";
+            this.uxNameLabel.Size = new System.Drawing.Size(35, 13);
+            this.uxNameLabel.TabIndex = 2;
+            this.uxNameLabel.Text = "Name";
             // 
-            // label4
+            // uxBreedTextBox
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 95);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Year";
+            this.uxBreedTextBox.Location = new System.Drawing.Point(56, 19);
+            this.uxBreedTextBox.Name = "uxBreedTextBox";
+            this.uxBreedTextBox.Size = new System.Drawing.Size(100, 20);
+            this.uxBreedTextBox.TabIndex = 2;
             // 
-            // label3
+            // uxBreedLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 70);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "BirthDate:";
+            this.uxBreedLabel.AutoSize = true;
+            this.uxBreedLabel.Location = new System.Drawing.Point(6, 16);
+            this.uxBreedLabel.Name = "uxBreedLabel";
+            this.uxBreedLabel.Size = new System.Drawing.Size(35, 13);
+            this.uxBreedLabel.TabIndex = 3;
+            this.uxBreedLabel.Text = "Breed";
             // 
-            // textBox2
+            // uxAddPetButton
             // 
-            this.textBox2.Location = new System.Drawing.Point(47, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 2;
+            this.uxAddPetButton.Location = new System.Drawing.Point(12, 12);
+            this.uxAddPetButton.Name = "uxAddPetButton";
+            this.uxAddPetButton.Size = new System.Drawing.Size(162, 23);
+            this.uxAddPetButton.TabIndex = 4;
+            this.uxAddPetButton.Text = "Add Pet";
+            this.uxAddPetButton.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // uxYearNumericUpDown
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Name";
+            this.uxYearNumericUpDown.Location = new System.Drawing.Point(56, 93);
+            this.uxYearNumericUpDown.Maximum = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.uxYearNumericUpDown.Minimum = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
+            this.uxYearNumericUpDown.Name = "uxYearNumericUpDown";
+            this.uxYearNumericUpDown.Size = new System.Drawing.Size(100, 20);
+            this.uxYearNumericUpDown.TabIndex = 7;
+            this.uxYearNumericUpDown.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             // 
-            // textBox1
+            // uxMonthNumericUpDown
             // 
-            this.textBox1.Location = new System.Drawing.Point(47, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
+            this.uxMonthNumericUpDown.Location = new System.Drawing.Point(56, 119);
+            this.uxMonthNumericUpDown.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.uxMonthNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.uxMonthNumericUpDown.Name = "uxMonthNumericUpDown";
+            this.uxMonthNumericUpDown.Size = new System.Drawing.Size(100, 20);
+            this.uxMonthNumericUpDown.TabIndex = 8;
+            this.uxMonthNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // label1
+            // uxDayNumericUpDown
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Breed";
+            this.uxDayNumericUpDown.Location = new System.Drawing.Point(56, 145);
+            this.uxDayNumericUpDown.Maximum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.uxDayNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.uxDayNumericUpDown.Name = "uxDayNumericUpDown";
+            this.uxDayNumericUpDown.Size = new System.Drawing.Size(100, 20);
+            this.uxDayNumericUpDown.TabIndex = 9;
+            this.uxDayNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // button1
+            // uxHourNumericUpDown
             // 
-            this.button1.Location = new System.Drawing.Point(12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add Pet";
-            this.button1.UseVisualStyleBackColor = true;
+            this.uxHourNumericUpDown.Location = new System.Drawing.Point(56, 171);
+            this.uxHourNumericUpDown.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.uxHourNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.uxHourNumericUpDown.Name = "uxHourNumericUpDown";
+            this.uxHourNumericUpDown.Size = new System.Drawing.Size(100, 20);
+            this.uxHourNumericUpDown.TabIndex = 10;
+            this.uxHourNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // uxPetForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(399, 284);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(527, 330);
+            this.Controls.Add(this.uxInstructionLabel);
+            this.Controls.Add(this.uxPetListBox);
+            this.Controls.Add(this.uxPetContainer);
+            this.Controls.Add(this.uxAddPetButton);
             this.Name = "uxPetForm";
             this.Text = "Owner\'s Pets";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.uxPetContainer.ResumeLayout(false);
+            this.uxPetContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.uxYearNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxMonthNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxDayNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.uxHourNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,23 +301,23 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label uxInstructionLabel;
+        private System.Windows.Forms.ListBox uxPetListBox;
+        private System.Windows.Forms.GroupBox uxPetContainer;
+        private System.Windows.Forms.Button uxAddButton;
+        private System.Windows.Forms.Label uxHourLabel;
+        private System.Windows.Forms.Label uxDayLabel;
+        private System.Windows.Forms.Label uxMonthLabel;
+        private System.Windows.Forms.Label uxYearLabel;
+        private System.Windows.Forms.Label uxBirthDateLabel;
+        private System.Windows.Forms.TextBox uxNameTextBox;
+        private System.Windows.Forms.Label uxNameLabel;
+        private System.Windows.Forms.TextBox uxBreedTextBox;
+        private System.Windows.Forms.Label uxBreedLabel;
+        private System.Windows.Forms.Button uxAddPetButton;
+        private System.Windows.Forms.NumericUpDown uxHourNumericUpDown;
+        private System.Windows.Forms.NumericUpDown uxDayNumericUpDown;
+        private System.Windows.Forms.NumericUpDown uxMonthNumericUpDown;
+        private System.Windows.Forms.NumericUpDown uxYearNumericUpDown;
     }
 }
