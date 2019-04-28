@@ -41,13 +41,13 @@ namespace CIS_560_Final_Project
                 {
                     ExecuteQuery
                         (
-                        "INSERT Clinic.Owner(ClinicId, PhoneNumber, FirstName, LastName, HappinessPercent)" +
-                        "SELECT C.ClinicId, O.PhoneNumber, O.FirstName, O.LastName, O.HappinessPercent" +
-                        "FROM" +
+                        "INSERT Clinic.Owner(ClinicId, PhoneNumber, FirstName, LastName, HappinessPercent) " +
+                        "SELECT C.ClinicId, O.PhoneNumber, O.FirstName, O.LastName, O.HappinessPercent " +
+                        "FROM " +
 	                    "    (" +
-		                "       VALUES" +
-			            "           (N'"+ Clinic +"', N'"+ uxPhoneTextBox.Text +"', N'"+ uxFirstName.Text +"', N'"+ uxLastNameTextBox.Text +"', "+ uxPercentNumericUpDown.Value.ToString()+")" +
-	                    "   ) O([Name], PhoneNumber, FirstName, LastName, HappinessPercent)" +
+		                "       VALUES " +
+			            "           (N'"+ Clinic +"', N'"+ uxPhoneTextBox.Text.Trim() +"', N'"+ uxFirstName.Text.Trim() +"', N'"+ uxLastNameTextBox.Text.Trim() +"', "+ uxPercentNumericUpDown.Value.ToString()+")" +
+	                    "   ) O([Name], PhoneNumber, FirstName, LastName, HappinessPercent) " +
                         "INNER JOIN Clinic.Clinic C ON C.[Name] = O.[Name]"
                         );
                 }

@@ -25,11 +25,6 @@ namespace CIS_560_Final_Project
             PopulateListBox();
         }
 
-        private void UxAddOwnerButton_Click(object sender, EventArgs e)
-        {
-            uxPetContainer.Enabled = true;
-        }
-
         private void PopulateListBox()
         {
             conn.Open();
@@ -83,15 +78,15 @@ namespace CIS_560_Final_Project
 
         private void uxPetListBox_DoubleClick(object sender, MouseEventArgs e)
         {
-            int index = this.uxPetListBox.IndexFromPoint(e.Location);
-            if (index != System.Windows.Forms.ListBox.NoMatches)
+            int index = uxPetListBox.IndexFromPoint(e.Location);
+            if (index != ListBox.NoMatches)
             {
-                uxPetForm petForm = new uxPetForm(uxPetListBox.SelectedItem.ToString().Split(',')[0]);
-                new Thread(RunPetForm).Start(petForm);
+                uxVisitForm visitForm = new uxVisitForm(uxPetListBox.SelectedItem.ToString().Split(',')[0]);
+                new Thread(RunPetForm).Start(visitForm);
             }
         }
 
-        static void RunPetForm(Object ob)
+        static void RunPetForm(object ob)
         {
             Application.Run((Form)ob);
         }
@@ -104,19 +99,24 @@ namespace CIS_560_Final_Project
                 List<string> ListOfSpecies = new List<string>();
                 try
                 {
-                    ListOfSpecies = ExecuteQuery("SELECT S.[Name] FROM Clinic.Species S WHERE S.[Name] = " + uxBreedTextBox.Text.Trim());
+                    ListOfSpecies = ExecuteQuery("SELECT B.Species FROM Clinic.Breed B WHERE B.Species = N'" + uxBreedTextBox.Text.Trim()+"'");
+                    CloseConnection();
+                    conn.Open();
+
                     if (ListOfSpecies.Count == 0) ExecuteQuery("INSERT Clinic.Breed(Species) VALUES(N'" + uxBreedTextBox.Text.Trim() + "')");
+                    CloseConnection();
+                    conn.Open();
 
                     ExecuteQuery
                         (
-                            "INSERT Clinic.Pet(OwnerId, BreedId, [Name], BirthDate)" +
-                            "SELECT O.OwnerId, B.BreedId, P.[Name], P.BirthDate" +
-                            "FROM" +
-                            "    (" +
-                            "        VALUES" +
-                            "            (N'"+ OwnerPhoneNumber +"', N'"+ uxBreedTextBox.Text.Trim() +"', N'"+ uxNameTextBox.Text.Trim() +"', '"+ CreateDateTime() +"')" +
-                            "    ) P(PhoneNumber, Species, [Name], BirthDate)" +
-                            "INNER JOIN Clinic.Owner O ON O.PhoneNumber = P.PhoneNumber" +
+                            "INSERT Clinic.Pet(OwnerId, BreedId, [Name], BirthDate) " +
+                            "SELECT O.OwnerId, B.BreedId, P.[Name], P.BirthDate " +
+                            "FROM " +
+                            "    ( " +
+                            "        VALUES " +
+                            "            (N'"+ OwnerPhoneNumber +"', N'"+ uxBreedTextBox.Text.Trim() +"', N'"+ uxNameTextBox.Text.Trim() +"', '"+ CreateDateTime() +"') " +
+                            "    ) P(PhoneNumber, Species, [Name], BirthDate) " +
+                            "INNER JOIN Clinic.Owner O ON O.PhoneNumber = P.PhoneNumber " +
                             "INNER JOIN Clinic.Breed B ON B.Species = P.Species"
                         );
                 }
@@ -131,7 +131,12 @@ namespace CIS_560_Final_Project
 
         private string CreateDateTime()
         {
-            return uxYearNumericUpDown.ToString() + "-" + uxMonthNumericUpDown.ToString() + "-" + uxDayNumericUpDown.ToString() + " " + uxHourNumericUpDown.ToString() + ":00:00"; 
+            return uxYearNumericUpDown.Value.ToString() + "-" + uxMonthNumericUpDown.Value.ToString() + "-" + uxDayNumericUpDown.Value.ToString() + " " + uxHourNumericUpDown.Value.ToString() + ":00:00"; 
+        }
+
+        private void UxAddPetButton_Click(object sender, EventArgs e)
+        {
+            uxPetContainer.Enabled = true;
         }
     }
 }

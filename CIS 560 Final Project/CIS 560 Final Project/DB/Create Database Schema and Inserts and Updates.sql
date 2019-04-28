@@ -128,7 +128,13 @@ INNER JOIN Clinic.Pet P ON P.[Name] = CV.PetName
 
 
 INSERT Clinic.Ailment([Name], Symptoms)
-	VALUES (N'Spring Fever', N'Causes a problem or something idk')
+	VALUES	(N'Lung Cancer', N'Malicious growth on the lungs'),
+			(N'Long Nails', N'Nails are too long for pets comfort'),
+			(N'Worms', N'Worms in pets poop'),
+			(N'Canine Distemper', N'Measles for dogs'),
+			(N'Notoedric Mange', N'Itchy Cat skin'),
+			(N'Feline Hyperesthesia', N'Weird behaviors'),
+			(N'FIP', N'Viral Infection')
 
 INSERT Clinic.PetAilment(AilmentId, PetId, IsActive)
 SELECT A.AilmentId, P.PetId, PA.IsActive
@@ -163,3 +169,5 @@ SET
 FROM Clinic.[Owner] O
 WHERE O.PhoneNumber = N'7858675309'
 
+
+SELECT V.VisitedOn, V.Weight, VET.[Name], A.[Name], PA.IsActive FROM Clinic.Visit V INNER JOIN Clinic.Vet VET ON VET.VetId = V.VetId INNER JOIN Clinic.PetAilment PA ON PA.PetId = V.PetId INNER JOIN Clinic.Ailment A ON A.AilmentId = PA.AilmentId INNER JOIN Clinic.Pet P ON P.PetId = V.PetId WHERE P.[Name] = N'SomePetName'

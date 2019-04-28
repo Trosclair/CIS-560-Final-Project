@@ -86,6 +86,7 @@
             this.uxPetContainer.Controls.Add(this.uxNameLabel);
             this.uxPetContainer.Controls.Add(this.uxBreedTextBox);
             this.uxPetContainer.Controls.Add(this.uxBreedLabel);
+            this.uxPetContainer.Enabled = false;
             this.uxPetContainer.Location = new System.Drawing.Point(12, 41);
             this.uxPetContainer.Name = "uxPetContainer";
             this.uxPetContainer.Size = new System.Drawing.Size(162, 277);
@@ -188,6 +189,7 @@
             this.uxAddPetButton.TabIndex = 4;
             this.uxAddPetButton.Text = "Add Pet";
             this.uxAddPetButton.UseVisualStyleBackColor = true;
+            this.uxAddPetButton.Click += new System.EventHandler(this.UxAddPetButton_Click);
             // 
             // uxYearNumericUpDown
             // 
